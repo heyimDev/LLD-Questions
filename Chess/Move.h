@@ -9,13 +9,16 @@ private:
 public:
     Move(Cell *startBlock, Cell *endBlock)
     {
-        endBlock = endBlock;
-        startBlock = startBlock;
+        this->endBlock = endBlock;
+        this->startBlock = startBlock;
     }
 
     bool isValid()
     {
-        return !(startBlock->getPiece()->isWhite() == endBlock->getPiece()->isWhite());
+        cout<<"hey";
+        cout << startBlock->getLocation().first << " " << startBlock->getLocation().first <<" "  << endBlock->getLocation().first << " " <<endBlock->getLocation().second; 
+        
+        return (endBlock->getPiece() == nullptr)|| !((startBlock->getPiece()->isWhite()== endBlock->getPiece()->isWhite()));
     }
 
     Cell *getStartBlock()

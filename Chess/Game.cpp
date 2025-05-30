@@ -26,12 +26,16 @@ public:
 
     void makeMove(Move *move, Player *player)
     {
+         cout<<"Hellod";
+        cout << move->isValid();
+       
         if (move->isValid())
         {
             Piece *sourcePiece = move->getStartBlock()->getPiece();
 
             if (sourcePiece->canMove(boardCell, move->getStartBlock(), move->getEndBlock()))
             {
+                cout<<"Shivam chutiya";
                 Piece *destinationPiece = move->getEndBlock()->getPiece();
 
                 if (destinationPiece != nullptr)
@@ -53,7 +57,7 @@ public:
 
                     destinationPiece->setKilled();
                 }
-
+                cout <<"me noob";
                 // Execute the move
                 move->getEndBlock()->setPiece(sourcePiece);
                 move->getStartBlock()->setPiece(nullptr);
@@ -73,14 +77,14 @@ public:
             cin >> startPosition.first >> startPosition.second;
             cout << "Enter Move End Position";
             cin >> endPosition.first >> endPosition.second;
-
+            cout << isWhiteTurn <<" say aaah";
             if (isWhiteTurn)
             {
-                makeMove(new Move(boardCell[startPosition.first][startPosition.second], boardCell[endPosition.first][endPosition.second]), player1);
+                this->makeMove(new Move(boardCell[startPosition.first][startPosition.second], boardCell[endPosition.first][endPosition.second]), player1);
             }
             else
             {
-                makeMove(new Move(boardCell[startPosition.first][startPosition.second], boardCell[endPosition.first][endPosition.second]), player2);
+                this->makeMove(new Move(boardCell[startPosition.first][startPosition.second], boardCell[endPosition.first][endPosition.second]), player2);
             }
         }
     }
